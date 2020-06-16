@@ -1,0 +1,19 @@
+Functionalities:
+1. Login-
+2. Register- (General User)
+3. Ratings-
+4. Reviews-
+5. Watch list-
+6. Celebrities-
+7. Movies- (Add New Movie, Movie page)
+8. TV shows
+9. News
+
+
+
+-----------------------------------------------SETUP--------------------------------------------------------------
+Make an SQL DB and run project.sql query. Start the server and get the connection string.
+Open project in Visual Studio
+Go to CRUD.cs
+Change the connection string
+Click on run
