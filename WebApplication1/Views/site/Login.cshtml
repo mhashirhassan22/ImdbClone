@@ -1,0 +1,48 @@
+﻿@{ 
+    Layout = null;
+}
+@model string
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="~/Scripts/Login.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
+
+    <meta name="viewport" content="width=device-width" />
+    <title>.:Login:.</title>
+</head>
+
+<body>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../site"><img onclick="" src="~/Content/Logo1.png" width="130" height="120"></a>
+    <!-- inline CSS on div tag;  external CSS on text boxes;-->
+    <div class="form" style="padding-left:125px;padding-right:125px;padding-top:60px;margin-left:375px;margin-right:375px;">
+        <h1 class="monospace">Welcome!</h1>
+        <br />
+        <br />
+
+        <form method="post" action="../site/authenticate">
+
+            <p class="monospace">UserName</p>
+            <input type="text" id="email" required name="emailname" placeholder="userName@imdb.com">
+            <span id="e"></span>
+            <p class="monospace">Password</p>
+            <input type="password" id="password" required name="passwordname" placeholder="********" />
+           <!-- <p class="check"><input type="checkbox" style="float:left; margin-top: 3px;margin-right:-155px;" onclick="myFunction()"> Show Password</p>-->
+
+            <br />
+            <p class="monospace">
+                <label>@Model</label>
+            </p>
+                <br />
+                <br />
+
+                <button type="submit" class="button button-block">LOGIN</button>
+
+</form>
+        <p class="new">Don't have an account?&nbsp;<a class="ex2" href="../../site/SignUp">[Register here!]</a></p>
+        <p class="new">Forgot Password?&nbsp;<a class="ex2" href="">[Click here!]</a></p>
+
+    </div>
+</body>
+</html>

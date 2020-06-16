@@ -1,0 +1,134 @@
+﻿body {
+    background-color:black;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+       h1.monospace {
+            font-family: "Lucida Console", Times, monospace;
+            text-align: center;
+            font-size: 60px;
+            color: white;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-weight: 300;
+            margin: 0 0 40px;
+        }
+          .button {
+            border: 0;
+            outline: none;
+            border-radius: 4px;
+            padding: 10px 30px;
+            font-size: 1.25rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            background: #1AA17C;
+            color: #ffffff;
+            transition: all.5s ease;
+            -webkit-appearance: none;
+            cursor: pointer;
+            margin: auto;
+        }
+
+        .button:hover {
+            background: #000000;
+            border-color:orangered;
+        }
+
+        .button-block {
+            display: inline;
+            padding: 10px 30px;
+        }
+
+        .field-wrap {
+            position: relative;
+            margin-bottom: 1px;
+        }
+        form { float:right;
+               display:inline;
+               margin-top:40px;
+        }
+        .navbar {
+  overflow: hidden;
+  background-color: #333;
+  margin:0px 30px;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 25px;
+  text-decoration: none;
+  transition: all.5s ease;
+}
+.navbar a.contact {
+  float: right;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 30px;
+  text-decoration:underline;
+  transition: all.5s ease;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+  transition: all.5s ease;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: black;
+  color:orangered;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #333;
+  min-width: 108px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: black;
+  color:orangered;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.navbar a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+.navbar a.active:hover {
+  background-color: black;
+  color:orangered;
+}

@@ -1,0 +1,135 @@
+﻿@{
+    Layout = null;
+
+}
+
+@using WebApplication1.Models;
+@using db_imdb.Models;
+@model List<Watchlist>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <link rel="stylesheet" type="text/css" href="~/Content/Home.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+    <meta name="viewport" content="width=device-width" />
+    <title>.:Home:.</title>
+</head>
+
+<body>
+
+    <!--<form action="../site/Login">-->
+    <!--<button type="submit" class="button button-block">LOGIN</button>-->
+    <form class="login">
+        <div class="dropdown-new">
+            <button class="dropbtn">
+                Settings&nbsp;&nbsp;
+                <i style="color:white" class="fa fa-gear fa-spin"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </button>
+            <div class="dropdown-new-content">
+                <a href="../../site/U_Pass">Change Password</a>
+                <a href="../../site/Delete_Account">Delete Account</a>
+                <a href="../../site/Logout">Logout</a>
+            </div>
+        </div>
+    </form>
+    <!--</form>-->
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../site"><img onclick="" src="~/Content/Logo1.png" width="130" height="120"></a>
+    <!-- inline CSS on div tag;  external CSS on text boxes;-->
+
+    <div class="navbar">
+        <a href="../../site/Home">Home</a>
+        <a href="../../site/Movie">Movies</a>
+        <a class="active" href="../../site/TVShows">TV Shows</a>
+        <div class="dropdown">
+            <button class="dropbtn">
+                Celebrities
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="../../site/Actor">Actors</a>
+                <a href="../../site/Director">Directors</a>
+            </div>
+        </div>
+        <a class="contact" href="#news">Contact Us</a>
+        <div class="dropdown-new">
+            <button class="dropbtn">
+                Personalization
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-new-content">
+                <a href="../../site/Watchlist_M">View Movies WatchList</a>
+                <a href="../../site/Watchlist_T">View TV Show WatchList</a>
+            </div>
+        </div>
+
+    </div>
+    @*<div style="margin: 20px 0px 0px 50px">
+        <h1 style="text-align:left">TV Show Watchlist</h1>
+    </div>*@
+
+    <div class="left" style="margin: 0px 50px">
+        <div style="margin: 20px 0px 0px 0px">
+            <h1 style="text-align:left">TV Show Watchlist</h1>
+        </div>
+        <table width="900" border="0" cellpadding="6">
+
+            @foreach (Watchlist movie in Model)
+            {
+                @*if (movie.path != "")*@
+            {
+                //var ab = movie.path;
+                //var rt = movie.rt;
+                //var date = movie.date;
+                //var rating = movie.rating;
+                <tr>
+
+                    @*<td align="justify" width="182">
+
+                            <img src="@Url.Content(ab)" width="182" height="268" />
+
+                        </td>*@
+
+                    <td align="justify" valign="top" width="900" style="color:white">
+                        <br />
+                        <a class="ex2" style="text-decoration:underline" href="../../site/TVShows_View?id=@movie.id"><b>@movie.title</b></a>
+                    </td>
+                    }
+
+                </tr>
+                }
+            }
+
+        </table>
+    </div>
+
+    <div class="right" style="margin: 20px 50px 20px 0px;color:white">
+        <table width="250" border="0">
+            <tr>
+                <td height="40px" align="center" bgcolor="#C70039">
+                    Browse
+                </td>
+            </tr>
+            <tr>
+                <td height="40px" align="center" bgcolor="#333">
+                    <p class="new"><a class="ex2" href="../../site/Home">Recommended</a></p>
+                </td>
+            </tr>
+            <tr>
+                <td height="40px" align="center" bgcolor="#333">
+                    <p class="new"><a class="ex2" href="#">Editor's Choice</a></p>
+                </td>
+            </tr>
+            <tr>
+                <td height="40px" align="center" bgcolor="#333">
+                    <p class="new"><a class="ex2" href="#">Releasing Soon</a></p>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

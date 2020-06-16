@@ -1,0 +1,248 @@
+﻿
+@using WebApplication1.Models;
+@using db_imdb.Models;
+@model Movies
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <link rel="stylesheet" type="text/css" href="~/Content/Home.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+    <meta name="viewport" content="width=device-width" />
+    <title>.:Home:.</title>
+</head>
+
+<body>
+
+    <!--<form action="../site/Login">-->
+    <!--<button type="submit" class="button button-block">LOGIN</button>-->
+    @*<form>
+            <div class="dropdown-new">
+                <button class="dropbtn">
+                    Settings&nbsp;&nbsp;
+                    <i style="color:white" class="fa fa-gear fa-spin"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </button>
+                <div class="dropdown-new-content">
+                    <a href="../../site/U_Pass">Change Password</a>
+                    <a href="../../site/Delete_Account">Delete Account</a>
+                    <a href="../../site/Logout">Logout</a>
+                </div>
+            </div>
+        </form>*@
+    <!--</form>-->
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../site"><img onclick="" src="~/Content/Logo1.png" width="130" height="120"></a>
+    <!-- inline CSS on div tag;  external CSS on text boxes;-->
+
+    <div class="navbar">
+        <a href="../../site/Home">Home</a>
+        <a class="active" href="../../site/Movie">Movies</a>
+        <a href="../../site/TVShows">TV Shows</a>
+        <div class="dropdown">
+            <button class="dropbtn">
+                Celebrities
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="../../site/Actor">Actors</a>
+                <a href="../../site/Director">Directors</a>
+            </div>
+        </div>
+        <a class="contact" href="#news">Contact Us</a>
+        @*<div class="dropdown-new">
+                <button class="dropbtn">
+                    Personalization
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-new-content">
+                    <a href="#">View WatchList</a>
+                </div>
+            </div>*@
+
+    </div>
+
+    <div class="left" style="margin: 0px 50px">
+        <table width="900" border="0" cellpadding="6">
+
+            @*@foreach (Movies movie in Model)*@
+            {
+                @*if (movie.path != "")*@
+                {
+                    @*var ab = movie.path;
+                    //var rt = movie.rt;
+                    //var date = movie.date;
+                    //var rating = movie.rating;*@
+                    <tr>
+
+                        <td align="justify" width="182">
+
+                            <img src="@Url.Content(@Model.path)" width="182" height="268" />
+
+                        </td>
+
+                        <td align="justify" valign="top" width="900" style="color:white">
+                            <br />
+                            <a class="ex2" href=""><b>@Model.title</b></a>
+                            <br />
+                            <br />
+                            Running Time : @Model.rt mins
+                            <br />
+                            <br />
+                            Release Date : @Model.date
+                            <br />
+                            <br />
+                            <a style="text-decoration:underline;color:#C70039" href="../../site/Director_View?id=@Model.director">Director : @Model.director</a>
+                            <br />
+                            <br />
+                            Movie Rating : @Model.rating &nbsp;&nbsp;<i style="color:darkgoldenrod" class="fa fa-star"></i>
+                            @*<br />
+                            <br />
+                            <a style="text-decoration:underline;color:#C70039" href="../../site/Movie_Actor?id=@Model.id">Click here to see all actors</a>*@
+                            <br />
+                            <br />
+                            <a style="text-decoration:underline;color:#C70039" href="../../site/addwatch_m?mid=@Model.id">Add to watchlist</a>
+                            @*<br />
+                            <br />
+                            <a style="text-decoration:underline;color:#C70039" href="../../site/Movie_Review?id=@Model.id">View Reviews</a>*@
+                        </td>
+                        }
+
+                    </tr>
+                }
+            }
+
+        </table>
+        <hr style="border-top: 1px dashed;border-color:#C70039;width:70%" />
+
+        <div style="margin: 20px 0px 0px 0px">
+            <h1 style="text-align:left">Cast</h1>
+        </div>
+        <table width="900" border="0" cellpadding="6">
+
+            @foreach (Actor movie in ViewBag.list)
+            {
+                if (movie.path != "")
+                {
+                    var ab = movie.path;
+                    //var rt = movie.rt;
+                    //var date = movie.date;
+                    //var rating = movie.rating;
+                    <tr>
+
+                        <td align="justify" width="182">
+
+                            <img alt="Not available" src="@Url.Content(ab)" width="182" height="268" />
+
+                        </td>
+
+                        <td align="justify" valign="top" width="900" style="color:white">
+                            <br />
+                            <a class="ex2" href=""><b>@movie.name</b></a>
+                            <br />
+                            <br />
+                            Gender : @movie.gender
+                            <br />
+                            <br />
+                            Age : @movie.age
+                            <br />
+                            <br />
+                        </td>
+                        }
+
+                    </tr>
+                }
+            }
+
+        </table>
+
+        <hr style="border-top: 1px dashed;border-color:#C70039;width:70%" />
+
+        <div style="margin: 20px 0px 0px 0px">
+            <h1 style="text-align:left">Reviews</h1>
+        </div>
+
+        @{int i = 1;
+        string mid = ""; }
+        <table width="900" border="0" cellpadding="6">
+
+            @foreach (Reviews_t movie in ViewBag.reviews)
+            {
+                //string mid;
+                mid = movie.mid;
+
+                //if (movie.path != "")
+                <tr>
+
+                    @*<td align="justify" width="182">
+
+                        <img src="@Url.Content(ab)" width="182" height="268" />
+
+                    </td>*@
+
+
+                    <td align="justify" valign="top" width="900" style="color:white">
+                        <br />
+                        @i.
+                        <br />
+                        <br />
+                        Reviewed by : @movie.reviewed_by
+                        <br />
+                        <br />
+                        Review : @movie.summary
+                        <br />
+                        <br />
+                    </td>
+                    }
+                    
+                </tr>
+                i = i + 1;
+            }
+
+        </table>
+        <hr style="border-top: 1px dashed;border-color:#C70039;width:70%" />
+
+        <div style="margin: 20px 0px 0px 0px">
+            <h1 style="text-align:left">Post Reviews</h1>
+        </div>
+        <div class="container">
+            <form method="post" action="../site/Addreview_m">
+
+                <label for="subject">Review</label>
+                <textarea id="subject" name="subjectname" required placeholder="Write something.." style="height:200px"></textarea>
+
+                <input type="hidden" name="movie_id" value="@mid" />
+
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+
+    <div class="right" style="margin: 20px 50px 20px 0px;color:white">
+        <table width="250" border="0">
+            <tr>
+                <td height="40px" align="center" bgcolor="#C70039">
+                    Browse
+                </td>
+            </tr>
+            <tr>
+                <td height="40px" align="center" bgcolor="#333">
+                    <p class="new"><a class="ex2" href="../../site/Home">Recommended</a></p>
+                </td>
+            </tr>
+            <tr>
+                <td height="40px" align="center" bgcolor="#333">
+                    <p class="new"><a class="ex2" href="#">Editor's Choice</a></p>
+                </td>
+            </tr>
+            <tr>
+                <td height="40px" align="center" bgcolor="#333">
+                    <p class="new"><a class="ex2" href="#">Releasing Soon</a></p>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,288 @@
+﻿
+
+@using WebApplication1.Models;
+@using db_imdb.Models;
+@model TV_Show
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <link rel="stylesheet" type="text/css" href="~/Content/Home.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+    <meta name="viewport" content="width=device-width" />
+
+    <script src="http://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+    <script>
+        //window.onload = function () {
+        //    if (typeof jQuery == 'undefined') {
+        //        alert("Undefined")
+        //    }
+        //    else
+        //        alert("Defined");
+        //}
+    </script>
+
+    @*<script type="text/javascript">
+        function submitForm() {
+            var rating = document.querySelector('input[name=rating]:checked').value;
+            var tvid = document.getElementsByName("movie_id");
+            //alert("tvid");
+            $.get("/site/updaterating", { mid: tvid }, function (data) {
+                alert(data);
+            });
+        }
+    </script>*@
+    <title>.:Home:.</title>
+</head>
+
+<body>
+
+    <!--<form action="../site/Login">-->
+    <!--<button type="submit" class="button button-block">LOGIN</button>-->
+    @*<form>
+            <div class="dropdown-new">
+                <button class="dropbtn">
+                    Settings&nbsp;&nbsp;
+                    <i style="color:white" class="fa fa-gear fa-spin"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </button>
+                <div class="dropdown-new-content">
+                    <a href="../../site/U_Pass">Change Password</a>
+                    <a href="../../site/Delete_Account">Delete Account</a>
+                    <a href="../../site/Logout">Logout</a>
+                </div>
+            </div>
+        </form>*@
+    <!--</form>-->
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../site"><img onclick="" src="~/Content/Logo1.png" width="130" height="120"></a>
+    <!-- inline CSS on div tag;  external CSS on text boxes;-->
+
+    <div class="navbar">
+        <a href="../../site/Home">Home</a>
+        <a href="../../site/Movie">Movies</a>
+        <a class="active" href="../../site/TVShows">TV Shows</a>
+        <div class="dropdown">
+            <button class="dropbtn">
+                Celebrities
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="../../site/Actor">Actors</a>
+                <a href="../../site/Director">Directors</a>
+            </div>
+        </div>
+        <a class="contact" href="#news">Contact Us</a>
+        @*<div class="dropdown-new">
+                <button class="dropbtn">
+                    Personalization
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-new-content">
+                    <a href="#">View WatchList</a>
+                </div>
+            </div>*@
+
+    </div>
+
+    <div class="left" style="margin: 0px 50px">
+        <table width="900" border="0" cellpadding="6">
+
+            @*@foreach (TV_Show movie in Model)*@
+            {
+                @*if (movie.path != "")*@
+                {
+                    @*var ab = movie.path;
+                    //var rt = movie.rt;
+                    //var date = movie.date;
+                    //var rating = movie.rating;*@
+                    <tr>
+
+                        <td align="justify" width="182">
+
+                            <img src="@Url.Content(@Model.path)" width="182" height="268" />
+
+                        </td>
+
+                        <td align="justify" valign="top" width="900" style="color:white">
+                            <br />
+                            <a class="ex2" href="../../site/TVShows_View?id=@Model.id"><b>@Model.title</b></a>
+                            <br />
+                            <br />
+                            No. of seasons : @Model.no_of_s
+                            <br />
+                            <br />
+                            Release Date : @Model.date
+                            <br />
+                            <br />
+                            Movie Rating : @Model.rating &nbsp;&nbsp;<i style="color:darkgoldenrod" class="fa fa-star"></i>
+                            <br />
+                            <br />
+                            <fieldset class="rating">
+                                    <input type="radio" id="star5" name="rating" value="10" /><label class="full" for="star5" title="Awesome - 5 stars"></label>
+                                    <input type="radio" id="star4half" name="rating" value="9" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+                                    <input type="radio" id="star4" name="rating" value="8" /><label class="full" for="star4" title="Pretty good - 4 stars"></label>
+                                    <input type="radio" id="star3half" name="rating" value="7" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+                                    <input type="radio" id="star3" name="rating" value="6" /><label class="full" for="star3" title="Meh - 3 stars"></label>
+                                    <input type="radio" id="star2half" name="rating" value="5" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+                                    <input type="radio" id="star2" name="rating" value="4" /><label class="full" for="star2" title="Kinda bad - 2 stars"></label>
+                                    <input type="radio" id="star1half" name="rating" value="3" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+                                    <input type="radio" id="star1" name="rating" value="2" /><label class="full" for="star1" title="Sucks big time - 1 star"></label>
+                                    <input type="radio" id="starhalf" name="rating" value="1" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+                        </fieldset>
+                                <br />
+                                <br />
+                                <a href="javascript: submitForm()">Submit</a>
+                            <br />
+                            <br />
+                            <a style="text-decoration:underline;color:#C70039" href="../../site/addwatch_t?tid=@Model.id">Add to watchlist</a>
+                            @*<br />
+                            <br />
+                            <a style="text-decoration:underline;color:#C70039" href="../../site/TVShow_Review?id=@Model.id">View Reviews</a>*@
+                        </td>
+                        }
+
+                    </tr>
+                }
+            }
+
+        </table>
+
+        <hr style="border-top: 1px dashed;border-color:#C70039;width:70%" />
+        <div style="margin: 20px 0px 0px 0px">
+            <h1 style="text-align:left">Cast</h1>
+        </div>
+        <table width="900" border="0" cellpadding="6">
+
+            @foreach (Actor movie in ViewBag.list)
+            {
+                if (movie.path != "")
+                {
+                    var ab = movie.path;
+                    //var rt = movie.rt;
+                    //var date = movie.date;
+                    //var rating = movie.rating;
+                    <tr>
+
+                        <td align="justify" width="182">
+
+                            <img alt="Not available" src="@Url.Content(ab)" width="182" height="268" />
+
+                        </td>
+
+                        <td align="justify" valign="top" width="900" style="color:white">
+                            <br />
+                            <a class="ex2" href=""><b>@movie.name</b></a>
+                            <br />
+                            <br />
+                            Gender : @movie.gender
+                            <br />
+                            <br />
+                            Age : @movie.age
+                            <br />
+                            <br />
+                        </td>
+                        }
+
+                    </tr>
+                }
+            }
+
+        </table>
+
+        <hr style="border-top: 1px dashed;border-color:#C70039;width:70%" />
+
+        <div style="margin: 20px 0px 0px 0px">
+            <h1 style="text-align:left">Reviews</h1>
+        </div>
+
+        @{string mid = ""; }
+        @{int i = 1;
+            //int mid = 0;
+        }
+        <table width="900" border="0" cellpadding="6">
+            @foreach (Reviews_t movie in ViewBag.reviews)
+            {
+                mid = movie.mid;
+                <tr>
+
+                    @*<td align="justify" width="182">
+
+                            <img src="@Url.Content(ab)" width="182" height="268" />
+
+                        </td>*@
+
+
+                    <td align="justify" valign="top" width="900" style="color:white">
+                        <br />
+                        @i
+                        <br />
+                        <br />
+                        Reviewed by : @movie.reviewed_by
+                        <br />
+                        <br />
+                        Review : @movie.summary
+                        <br />
+                        <br />
+                    </td>
+                    }
+                </tr>
+                i = i + 1;
+         }
+            </table>
+        <div style="margin: 20px 0px 0px 0px">
+            <h1 style="text-align:left">Post Review</h1>
+        </div>
+        <div class="container">
+            <form method="post" action="../site/Addreview_t">
+
+                <label for="subject">Review</label>
+                <textarea id="subject" name="subjectname" required placeholder="Write something.." style="height:200px"></textarea>
+
+                <input type="hidden" name="movie_id" class="mod" id="mod" value="@mid" />
+
+                <input type="submit" data-rel="back" value="Submit">
+            </form>
+        </div>
+</div>
+    <script type="text/javascript">
+        function submitForm() {
+            var rating = document.querySelector('input[name=rating]:checked').value;
+            var hv = $('#mod').val();
+            //alert(rating);
+            //alert(hv);
+            $.get("/site/updaterating", { rate: rating, mid: hv });
+            location.reload(true);
+        }
+    </script>
+
+    <div class="right" style="margin: 20px 50px 20px 0px;color:white">
+        <table width="250" border="0">
+            <tr>
+                <td height="40px" align="center" bgcolor="#C70039">
+                    Browse
+                </td>
+            </tr>
+            <tr>
+                <td height="40px" align="center" bgcolor="#333">
+                    <p class="new"><a class="ex2" href="../../site/Home">Recommended</a></p>
+                </td>
+            </tr>
+            <tr>
+                <td height="40px" align="center" bgcolor="#333">
+                    <p class="new"><a class="ex2" href="#">Editor's Choice</a></p>
+                </td>
+            </tr>
+            <tr>
+                <td height="40px" align="center" bgcolor="#333">
+                    <p class="new"><a class="ex2" href="#">Releasing Soon</a></p>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

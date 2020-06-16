@@ -1,0 +1,134 @@
+﻿
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script></script>
+
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <style>
+        body{
+            background-color:black;
+        }
+        .btn {
+            background-color: DodgerBlue;
+            border: none;
+            color: white;
+            padding: 12px 16px;
+            font-size: 16px;
+            cursor: pointer;
+            width:250px;
+            margin:auto;
+            display:block;
+        }
+
+        /* Darker background on mouse-over */
+        .btn:hover {
+            background-color: RoyalBlue;
+        }
+        .flex {
+            display: flex;
+            justify-content: center;
+            margin-left:150px;
+            margin-right:150px;
+        }
+        form{
+            margin:0px 20px;
+        }
+
+        .flex-item + .flex-item {
+            margin-left: 10px;
+        }
+    </style>
+    <title>.:Admin:.</title>
+</head>
+
+<body>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../site"><img onclick="" src="~/Content/Logo1.png" width="130" height="120"></a>
+    <br />
+    <br />
+    <br />
+    <div class="flex">
+        <form action="../site/AddUser">
+            <button class="btn"><i class="fa fa-user-plus"></i> Add User</button>
+        </form>
+        <form action="../site/DeleteUser">
+            <button class="btn"><i class="fa fa-user-plus"></i> Delete User</button>
+        </form>
+        <form action="../site/AddAdmin">
+            <button class="btn"><i class="fa fa-user-secret"></i> Add Admin</button>
+        </form>
+        <form action="../site/DeleteAdmin">
+            <button class="btn"><i class="fa fa-user-secret"></i> Delete Admin</button>
+        </form>
+    </div>
+    <br />
+    <div class="flex">
+        <form action="../site/AddMovie">
+            <button class="btn"><i class="fa fa-file-movie-o"></i> Add Movie</button>
+        </form>
+        <form action="../site/DeleteMovie">
+            <button class="btn"><i class="fa fa-file-movie-o"></i> Delete Movie</button>
+        </form>
+        <form action="../site/AddMovieActor">
+            <button class="btn"><i class="fa fa-file-movie-o"></i> Add Movie Actor</button>
+        </form>
+        <form action="../site/DeleteMovieActor">
+            <button class="btn"><i class="fa fa-file-movie-o"></i> Delete Movie Actor</button>
+        </form>
+    </div>
+    <br />
+    <div class="flex">
+        <form action="../site/AddActor">
+            <button class="btn"><i class="fa fa-user-circle"></i> Add Actor</button>
+        </form>
+        <form action="../site/DeleteActor">
+            <button class="btn"><i class="fa fa-user-circle"></i> Delete Actor</button>
+        </form>
+        <form action="../site/AddDirector">
+            <button class="btn"><i class="fa fa-user-circle"></i> Add Director</button>
+        </form>
+        <form action="../site/DeleteDirector">
+            <button class="btn"><i class="fa fa-user-circle"></i> Delete Director</button>
+        </form>
+    </div>
+    <br />
+    <div class="flex">
+        <form action="../site/AddGenre">
+            <button class="btn"><i class="glyphicon glyphicon-cd"></i> Add Genre</button>
+        </form>
+        <form action="../site/DeleteGenre">
+            <button class="btn"><i class="glyphicon glyphicon-cd"></i> Delete Genre</button>
+        </form>
+        <form action="../site/AddEpisode">
+            <button class="btn"><i class="fa fa-tv"></i> Add Episode</button>
+        </form>
+        <form action="../site/DeleteEpisode">
+            <button class="btn"><i class="fa fa-tv"></i> Delete Episode</button>
+        </form>
+    </div>
+    <br />
+    <div class="flex">
+        <form action="../site/AddTvShow">
+            <button class="btn"><i class="fa fa-tv"></i> Add TV Show</button>
+        </form>
+        <form action="../site/DeleteTvShow">
+            <button class="btn"><i class="fa fa-tv"></i> Delete TV Show</button>
+        </form>
+        <form action="../site/AddTvShowActor">
+            <button class="btn"><i class="fa fa-tv"></i> Add TV Show Actor</button>
+        </form>
+        <form action="../site/DeleteTvShowActor">
+            <button class="btn"><i class="fa fa-tv"></i> Delete TV Show Actor</button>
+        </form>
+    </div>
+
+</body>
+</html>
